@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          body {
+            background-color: rgb(18, 96, 96);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .caixa {
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            width: 600px;
+            height: 100px;
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="caixa">
+        <h1>lorem your dabpo!</h1>
+        <a href="pagina2.html">Pag1</a>
+        <a href="pagina3.html">Pag2</a>
+        <a href="pagina4.html">Pag3</a>
+    </div>
+</body>
+<script>
+    fetch('pagina2.html')
+    .then(response => {
+        if(response.status !== 200) {
+            throw new Error ('ERROR 404!')
+        }
+        return response.text(); //retorna um texto no html
+    })
+    .then(html => {
+        console.log(html)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+</script>
+</html>
